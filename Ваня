@@ -1,1 +1,11 @@
-
+Function MasChecker(const MasScore: TMasScore, const players: integer):boolean;
+begin
+	flag:= true;
+	i:=1;
+	while flag and i<=players do
+		begin
+			if MasScore[i]>=5 then 
+				flag:=false;
+			inc(i);
+		end;
+	result:=flag;
