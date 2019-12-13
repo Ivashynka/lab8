@@ -1,4 +1,7 @@
 Function MasChecker(const MasScore: TMasScore, const players: integer):boolean;
+var
+i:integer;
+flag:boolean;
 begin
 	flag:= true;
 	i:=1;
@@ -9,3 +12,4 @@ begin
 			inc(i);
 		end;
 	result:=flag;
+	end;
