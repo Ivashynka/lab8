@@ -15,14 +15,15 @@ Mas:Tmas;
 MasScore:TMasScore;
 i,Score,N,CurrNumber:integer;
 
-Procedure VvodChisla_Proverka(CurrNumber:integer);
+Procedure Proverka(CurrNumber2:integer);
 begin
-  if (CurrNumber>9) or (CurrNumber<1) then
+  read(CurrNumber2);
+  while (CurrNumber2>9) or (CurrNumber2<1) do
     begin
-      writeln('Введите число из диапазона');
-      readln(CurrNumber);
-    end
-  else writeln(CurrNumber);
+      writeln('Введите число из заданного диапазона');
+      readln(CurrNumber2);
+    end;
+  writeln('Введенное игроком число-',CurrNumber2);
 end;
 
 begin
@@ -32,7 +33,6 @@ begin
   Write('Количество игроков-');
   readln(N);
   Writeln('Введите число от 1 до 9');
-  read(CurrNumber);
-  VvodChisla_Proverka(CurrNumber);
-
+  Proverka(CurrNumber);
+  readln;
 end.
