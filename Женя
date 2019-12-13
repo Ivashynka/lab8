@@ -13,17 +13,16 @@ TMasScore=array[1..5] of integer;
 var
 Mas:Tmas;
 MasScore:TMasScore;
-i,Score,N:integer;
+i,Score,N,CurrNumber:integer;
 
 Procedure VvodChisla_Proverka(CurrNumber:integer);
 begin
-  Writeln('Введите число от 1 до 9');
-  readln(CurrNumber);
   if (CurrNumber>9) or (CurrNumber<1) then
-    Begin
-      writeln('Введите число из диапазона')
+    begin
+      writeln('Введите число из диапазона');
       readln(CurrNumber);
-    End;
+    end
+  else writeln(CurrNumber);
 end;
 
 begin
@@ -32,6 +31,8 @@ begin
   writeln('Начальное число-',Score);
   Write('Количество игроков-');
   readln(N);
-  Readln;
+  Writeln('Введите число от 1 до 9');
+  read(CurrNumber);
+  VvodChisla_Proverka(CurrNumber);
 
 end.
