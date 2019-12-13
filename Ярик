@@ -5,22 +5,43 @@ program lab8;
 {$R *.res}
 uses
   System.SysUtils;
-var I,O:textfile;
-s:string;
-begin
-assignFile(I,'C:\Users\ivash\Desktop\OAiP(LR)\lab8\input.txt');
-assignFile(O,'C:\Users\ivash\Desktop\OAiP(LR)\lab8\output.txt');
-reset(I);
-while not(EOF(I)) do
-  begin
-  readln(I,s);
-  writeln(s);
-  end;
-  closefile(I);
-  Rewrite(o) ;
+  type tmas=array[1..1000] of integer;
+TMasScore=array[1..5] of integer;
+var flag:boolean;
+score,CurrNumber,i,n:integer;
 
-  append(o);
-  Writeln(o,'fjlkdj');
-  closefile(O) ;
-  readln;
+
+Function MasChecker(const MasScore_1: TMasScore; const players: integer):boolean;
+var
+i_1:integer;
+flag_1:boolean;
+begin
+	flag_1:= true;
+	i:=1;
+	while flag and i<=players do
+		begin
+			if MasScore_1[i_1]>=5 then
+      flag_1:=false;
+			inc(i_1);
+		end;
+	result:=flag_1;
+	end;
+
+begin
+while maschecker do
+begin
+  i:=1;
+  while score<999 do
+  begin
+  readln(CurrNumber);
+  score:=score+CurrNumber;
+  inc(i);
+  if i=n then
+  i:=1;
+  end;
+
+end;
+
+
+
 end.
