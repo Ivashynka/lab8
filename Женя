@@ -15,7 +15,7 @@ Mas:Tmas;
 MasScore:TMasScore;
 i,Score,N,CurrNumber:integer;
 
-Procedure Proverka(CurrNumber2:integer);
+Procedure Vvod_i_Proverka(CurrNumber2:integer);
 begin
   read(CurrNumber2);
   while (CurrNumber2>9) or (CurrNumber2<1) do
@@ -33,6 +33,8 @@ begin
   Write('Количество игроков-');
   readln(N);
   Writeln('Введите число от 1 до 9');
-  Proverka(CurrNumber);
+  Vvod_i_Proverka(CurrNumber);
   readln;
+  readln;
+
 end.
