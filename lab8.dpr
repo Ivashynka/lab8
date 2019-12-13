@@ -10,7 +10,7 @@ TMasScore=array[1..5] of integer;
 var
 MasScore:TMasScore;
 flag:boolean;
-score,CurrNumber,i,n,counter:integer;
+score,CurrNumber,i,n,counter,RoundCount:integer;
 
 
 Function MasChecker(const MasScore_1: TMasScore; const players: integer):boolean;
@@ -20,7 +20,7 @@ flag_1:boolean;
 begin
 	flag_1:= true;
 	i_1:=1;
-	while flag_1 and i_1<=players do
+	while flag_1 and (i_1<=players) do
 		begin
 			if MasScore_1[i_1]>=5 then
       flag_1:=false;
@@ -30,11 +30,12 @@ begin
 end;
 
 
-  Procedure RoundSummary(_i:integer; var _MasScore:TMasScore; _score:integer);
+  Procedure RoundSummary(_i,_RoundCount:integer; var _MasScore:TMasScore; _score:integer);
 	begin
 		inc(_MasScore[_i]);
 		if _score>999 then
-			 _MasScore[_i]*2;
+		 _MasScore[_i]:=_MasScore[_i]*2;
+    Writeln('Раунд ',_RoundCount,' Проиграл ',_i,'-й игрок Сумма штрафных очков - ',_MasScore[_i]);
 	end;
 
   function Vvod_i_Proverka():integer;
@@ -57,11 +58,13 @@ begin
  read(n);
  for counter:= 1 to n do
  MasScore[counter]:=0;
+RoundCount:=0;
 while maschecker(MasScore,n) do
 begin
 randomize;
 Score:=random(50)+900;
 i:=0;
+inc(RoundCount);
 while score<999 do
   begin
   inc(i);
@@ -71,7 +74,7 @@ while score<999 do
   CurrNumber:=Vvod_i_Proverka;
   score:=score+CurrNumber;
   end;
-roundsummary(i,MasScore,score);
+roundsummary(i,RoundCount,MasScore,score);
 end;
 writeln('Проигравший игрок: Игрок ', i);
 
