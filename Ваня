@@ -1,6 +1,0 @@
-Procedure RoundSummary(_i:integer; var _MasScore:TMasScore; _score:integer);
-	begin
-		inc(_MasScore[_i]);
-		if _score>999 then
-			 _MasScore[_i]*2;
-	end;
